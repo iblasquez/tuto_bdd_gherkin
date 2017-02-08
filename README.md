@@ -9,8 +9,7 @@ Pour découvrir et comprendre la grammaire du langage Gherkin, nous utiliserons 
 - du wiki de Cucumber : [https://github.com/cucumber/cucumber/wiki](https://github.com/cucumber/cucumber/wiki)    
 -  de la section Gherkin du manuel Cucumber de référence : [https://cucumber.io/docs/reference#gherkin](https://cucumber.io/docs/reference#gherkin)      
 -  et du livre **[The Cucumber Book – Behaviour Driven Development for Testers and Developers de Matt Wyne et Aslak Helesoy](https://pragprog.com/book/hwcuc/the-cucumber-book)**  
-<img src="https://imagery.pragprog.com/products/216/hwcuc.jpg" alt="Cucumber Book" width="70"> 
-
+<img src="https://imagery.pragprog.com/products/216/hwcuc.jpg?1310390511" alt="Cucumber Book" width="70">
 
 Grâce à ces différents exemples, nous procéderons pas à pas à la modélisation du **langage Gherkin** sous forme de diagramme de classes à partir des étpaes suivantes :  
 
@@ -534,11 +533,10 @@ Un tutoriel de prise en main de [Cucumber](https://cucumber.io/) est disponible 
 
 
 ## Commentaires, remarques et suggestions
-Pour les discussions, c'est par là : https://github.com/iblasquez/tuto_bdd_gherkin/files/issues  
-Pour les propositions de contenu, de modification par ici : https://github.com/iblasquez/tuto_bdd_gherkin/files/pulls 
+Pour les discussions, c'est par là : https://github.com/iblasquez/tuto_bdd_gherkin/issues  
+Pour les propositions de contenu, de modification par ici : https://github.com/iblasquez/tuto_bdd_gherkin/pulls
 
 Et bien sûr, n'hésitez pas à personnaliser vos messages avec des [emojis](http://www.webpagefx.com/tools/emoji-cheat-sheet/) :simple_smile:
-
 
 
 ## Licence
