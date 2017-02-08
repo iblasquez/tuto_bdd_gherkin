@@ -9,7 +9,7 @@ Pour découvrir et comprendre la grammaire du langage Gherkin, nous utiliserons 
 - du wiki de Cucumber : [https://github.com/cucumber/cucumber/wiki](https://github.com/cucumber/cucumber/wiki)    
 -  de la section Gherkin du manuel Cucumber de référence : [https://cucumber.io/docs/reference#gherkin](https://cucumber.io/docs/reference#gherkin)      
 -  et du livre **[The Cucumber Book – Behaviour Driven Development for Testers and Developers de Matt Wyne et Aslak Helesoy](https://pragprog.com/book/hwcuc/the-cucumber-book)**  
-<img src="https://imagery.pragprog.com/products/216/hwcuc.jpg?1310390511" alt="Cucumber Book" width="70">
+<img src="https://images-na.ssl-images-amazon.com/images/I/51dKVQPJolL._SX415_BO1,204,203,200_.jpg" alt="Cucumber Book" width="70">
 
 Grâce à ces différents exemples, nous procéderons pas à pas à la modélisation du **langage Gherkin** sous forme de diagramme de classes à partir des étpaes suivantes :  
 
