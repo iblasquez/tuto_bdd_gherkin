@@ -170,7 +170,7 @@ Ce qui différencie un scénario normal d'un scénario paramétré est l'apparit
 
 - Cette rubrique est ensuite composée d'un ensemble de lignes :  
  	- La première ligne constitue en quelque sorte l'***entête*** des exemples puisque chaque cellule de cette ligne prend comme valeur le nom d'un paramètre. Cette ligne est donc constituée d'autant de cellules que de paramètres du scénario. Cette ligne est unique et indispensable.  
- 	- Toutes les autres lignes représentent réellement un exemple c-a-d que chaque cellule d'une ligne contient la valeur d'un paramètre à appliquer dans une étape.  
+ 	- Toutes les autres lignes représentent réellement un exemple (plus précisément, le ***corps*** de l'exemple)  c-a-d que chaque cellule d'une ligne contient la valeur d'un paramètre à appliquer dans une étape.  
  	Au travers des valeurs qu'elle propose, chaque ligne permet donc de reconstituer un exemple du scénario. Il y aura donc autant de lignes que d'exemples à illustrer.
 
 Cet ensemble de lignes compose, en langage Gherkin, une **DataTable**.  
@@ -181,7 +181,7 @@ Remarque : le symbole `|` est le séparateur qui permet de délimiter chaque cel
 
 ***Pour simplifier la modélisation, on considérera que les étapes sont pour le moment uniquement constituée d'un mot-clé et de texte (peu importe pour l'instant les `<` `>` dans le texte qui permettent d'identifier un paramètre).***
 
-***Transformer votre diagramme de classes afin d'y faire apparaître les deux types de scénarii (scénario simple et scénario paramétré) au sein d'une même hiérarchie.*** 
+***Transformer votre diagramme de classes afin d'y faire apparaître les deux types de scénarii (scénario simple et scénario paramétré) au sein d'une même hiérarchie (héritage)*** 
 
 ***Bien veiller à ce que tous les composants du scénario paramétré soient bien modélisés dans votre nouveau diagramme de classes.***
 
@@ -305,7 +305,7 @@ Background: Insert a newly issued car and sign in
 ## 4. Des scénarii, mais pourquoi? ... pour décrire une fonctionnalité ! <a id="feature"></a>
 
 Un scénario est un exemple qui vise à tester une règle métier d'une fonctionnalité du système dans une certaine configuration.  
-Un ***scénario*** dépend donc d'une et d'une seule fonctionnalité (appelée ***feature*** dans le langage Gherkin) et une ***feature*** peut être illustrée (et testée) à l'aide de plusieurs scénarii.
+Un ***scénario*** dépend donc d'une et d'une seule fonctionnalité (appelée ***feature*** dans le langage Gherkin) et une ***feature*** peut être illustrée à l'aide de plusieurs scénarii.
 
 La fonctionnalité est décrite dans une rubrique ***feature*** qui doit être ajoutée en amont de la description des scénarii c-a-d en tout début de fichier avant les rubriques de background, scenario ou scenario paramétré.
 
