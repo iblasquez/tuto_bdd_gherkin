@@ -459,7 +459,7 @@ En modélisant le diagramme de classes, la première partie de ce tutoriel nous 
 La seconde partie de ce TD va vous plonger dans la phase d'implémentation.  
 
 
-Le **projet Gherkin** est un projet open-source hébergé sur github à l'adresse suivante : **[https://github.com/cucumber/gherkin](https://github.com/cucumber/gherkin)**.  
+Le **projet Gherkin** est un projet open-source hébergé sur github à l'adresse suivante : **[https://github.com/cucumber/cucumber/tree/master/gherkin](https://github.com/cucumber/cucumber/tree/master/gherkin)**.  
 
 Il s'agit d'un parseur et d'un compilateur pour le langage Gherkin.  
 Ce projet propose des implémentations autour du langage Gherkin dans de nombreux langages : 
@@ -470,19 +470,19 @@ Nous nous intéresserons dans le cadre de ce tutoriel uniquement à l'implément
 Rendez-vous dans le dépôt Java : **[https://github.com/cucumber/gherkin-java](https://github.com/cucumber/gherkin-java)**.  
 Puis dans [src](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src), puis dans [main](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main) :
 
-- dans [resources/gherkin](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/resources/gherkin), vous trouverez le fichier [gherkin-languages.json](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/resources/gherkin/gherkin-languages.json) utilisé pour l'internationalisation.
+- dans [resources/gherkin](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/resources/gherkin), vous trouverez le fichier [gherkin-languages.json](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/resources/gherkin/gherkin-languages.json) utilisé pour l'internationalisation. 
  
 - Dans [java/gherkin](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/gherkin) puis [ast](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/gherkin/ast), vous trouverez une **implémentation java du langage Gherkin** conforme au diagramme de classes que vous venez de modéliser, diagramme de classes qui est également proposé dans le [README](https://github.com/cucumber/cucumber/blob/master/gherkin/README.md) du projet Gherkin : jetez un petit coup d'oeil par [là](https://github.com/cucumber/cucumber/blob/master/gherkin/README.md), il faut descendre un peu pour l'apercevoir :simple_smile:
 
 
-Consultez le contenu de ([/java/src/main/java/gherkin/ast/](https://github.com/cucumber/gherkin-java/tree/master/src/main/java/gherkin/ast)).  
+Consultez le contenu de ([cucumber/gherkin/java/src/main/java/gherkin/ast/](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/gherkin/ast).  
 Vous devriez y trouver une implémentation Java des classes découvertes lors de la modélisation du diagramme de classes à quelques exceptions près :
 
 * Le langage Gherkin a été implémenté sous forme d'[arbre syntaxique abstrait](https://fr.wikipedia.org/wiki/Arbre_syntaxique_abstrait) (**a**bstract **s**yntax **t**ree en anglais ou **ast**). Nous ne rentrerons pas dans ce tutoriel, dans le détail de ce qu'est un [arbre syntaxique abstrait](https://fr.wikipedia.org/wiki/Arbre_syntaxique_abstrait). Nous nous contenterons juste de retenir le point suivant : **le langage Gherkin a été implémenté sous forme d'arbre et un arbre est composé de nœuds**, d'où :
 	- la présence de la classe [Node](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/ast/Node.java) (que nous n'avions pas identifié dans le diagramme de classes).
 	- Tous les éléments du langage Gherkin sont des noeuds, autrement dit les classes héritent de la classe [Node](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/ast/Node.java).
 
-* La présence d'une classe [DocString](https://github.com/cucumber/gherkin/blob/master/java/src/main/java/gherkin/ast/DocString.java).   
+* La présence d'une classe [DocString](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/ast/DocString.java).   
 Le [manuel de référence à propos de Doctring](https://cucumber.io/docs/reference#doc-strings) indique :
 > Doc Strings are handy for passing a larger piece of text to a step definition. The text should be offset by delimiters consisting of three double-quote marks on lines of their own
 
@@ -500,10 +500,10 @@ Given a blog post named "Random" with Markdown body
 
 ```
 
-* Les ***constantes*** **du langage Gherkin** se trouve dans le fichier [GherkinLanguageConstants.java](https://github.com/cucumber/gherkin/blob/master/java/src/main/java/gherkin/GherkinLanguageConstants.java) non pas directement dans le dépôt [ast](https://github.com/cucumber/gherkin/tree/master/java/src/main/java/gherkin/ast), mais juste au-dessus dans le dépôt [gherkin/java/src/main/java/gherkin/](https://github.com/cucumber/gherkin/tree/master/java/src/main/java/gherkin).  
-On y trouve d'ailleurs la constante permettant d'introduire un [DocString]((https://github.com/cucumber/gherkin/blob/master/java/src/main/java/gherkin/ast/DocString.java)) à savoir **`"""`** déclaré comme : `String DOCSTRING_ALTERNATIVE_SEPARATOR = "```" ;`
+* Les ***constantes*** **du langage Gherkin** se trouve dans le fichier [GherkinLanguageConstants.java](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/GherkinLanguageConstants.java) non pas directement dans le dépôt [ast](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/gherkin/ast), mais juste au-dessus dans le dépôt [cucumber/gherkin/java/src/main/java/gherkin/](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/gherkin).  
+On y trouve d'ailleurs la constante permettant d'introduire un [DocString](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/ast/DocString.java) à savoir **`"""`** déclaré comme : `String DOCSTRING_ALTERNATIVE_SEPARATOR = "```" ;`
 
-* La présence du classe [Location](https://github.com/cucumber/gherkin/blob/master/java/src/main/java/gherkin/ast/Location.java) qui permet situer un endroit dans le document Gherkin à partir de sa ligne et sa colonne. Elle est notamment utilisée pour situer chaque élément du langage dans le document Gherkin.
+* La présence du classe [Location](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/ast/Location.java) qui permet situer un endroit dans le document Gherkin à partir de sa ligne et sa colonne. Elle est notamment utilisée pour situer chaque élément du langage dans le document Gherkin.
 
 
 #### Question  
@@ -513,8 +513,9 @@ L'objet de cette partie est de se balader dans le code d'implémentation du Gher
 
 **Et pour finir**, n'hésitez consulter les liens suivants :
 
-* [https://github.com/cucumber/gherkin/tree/master/testdata/good](https://github.com/cucumber/gherkin/tree/master/testdata/good)
-* [https://github.com/cucumber/gherkin/tree/master/testdata/bad](https://github.com/cucumber/gherkin/tree/master/testdata/bad)
+* [https://github.com/cucumber/cucumber/tree/master/gherkin/testdata/good](https://github.com/cucumber/cucumber/tree/master/gherkin/testdata/good)
+* [https://github.com/cucumber/cucumber/tree/master/gherkin/testdata/bad](https://github.com/cucumber/cucumber/tree/master/gherkin/testdata/bad)
+
 
 Ils vous donneront au travers d'exemples sur les éléments du langage Gherkin quelques conseils pour bien écrire vos scénarii, puisque ce sont des scénarii en Gherkin écrits pour tester l'implémentation du langage Gherkin...Amusant, non ? 
 
@@ -523,7 +524,8 @@ Ils vous donneront au travers d'exemples sur les éléments du langage Gherkin q
 
 Vous pouvez bien sûr contribuer au [projet Gherkin](https://github.com/cucumber/cucumber), et on ne peut que vous encourager à aller vers ce genre d'initiative en tant que (futur) développeur.  
   
-Si tel est votre souhait, il vous faudra alors cloner le projet (et pas simplement récupérer le zip). Mais tout est expliqué dans le **CONTRIBUTING.md** disponible [ici](https://github.com/cucumber/gherkin/blob/master/CONTRIBUTING.md).
+Si tel est votre souhait, il vous faudra alors cloner le projet (et pas simplement récupérer le zip). Mais tout est expliqué dans le **CONTRIBUTING.md** disponible [ici](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md).
+
 
 
 ## Pour aller plus loin...
