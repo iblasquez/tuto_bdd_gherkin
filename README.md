@@ -506,7 +506,7 @@ Given a blog post named "Random" with Markdown body
 
 ```
 
-On retrouve d'ailleurs la constante permettant d'introduire un [DocString](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/ast/DocString.java) à savoir **`"""`** déclaré comme : `String DOCSTRING_ALTERNATIVE_SEPARATOR = "```" ;``   dans la classe [`GherkinLanguageConstants.java`](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/io/cucumber/gherkin) 
+On retrouve d'ailleurs la constante permettant d'introduire un [DocString](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/ast/DocString.java) à savoir **`"""`** déclaré comme : `String DOCSTRING_ALTERNATIVE_SEPARATOR = "```" ;`   dans la classe [GherkinLanguageConstants.java](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/io/cucumber/gherkin) 
 
 
 
