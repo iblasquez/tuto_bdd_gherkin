@@ -465,18 +465,24 @@ Il s'agit d'un parseur et d'un compilateur pour le langage Gherkin.
 Ce projet propose des implémentations autour du langage Gherkin dans de nombreux langages : 
 [.NET](https://github.com/cucumber/gherkin-dotnet), [Java](https://github.com/cucumber/gherkin-java), [JavaScript](https://github.com/cucumber/gherkin-javascript), [Ruby](https://github.com/cucumber/gherkin-ruby), [Go](https://github.com/cucumber/gherkin-go), [Python](https://github.com/cucumber/gherkin-python), [Objective-C](https://github.com/cucumber/gherkin-objective-c) et [Perl](https://github.com/cucumber/gherkin-perl).
 
+Dans le [README](https://github.com/cucumber/cucumber/blob/master/gherkin/README.md) de ce projet, vous trouvez comme documentation le diagramme de classes que vous venez de modéliser, diagramme de classes, il faut descendre un peu pour l'apercevoir :simple_smile:
+
 Nous nous intéresserons dans le cadre de ce tutoriel uniquement à l'implémentation [Java](https://github.com/cucumber/gherkin-java) de ce projet.
 
 Rendez-vous dans le dépôt Java : **[https://github.com/cucumber/gherkin-java](https://github.com/cucumber/gherkin-java)**.  
 Puis dans [src](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src), puis dans [main](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main) :
 
-- dans [resources/gherkin](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/resources/gherkin), vous trouverez le fichier [gherkin-languages.json](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/resources/gherkin/gherkin-languages.json) utilisé pour l'internationalisation. 
+- dans [resources/gherkin](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/resources/gherkin), vous trouverez le fichier [**`gherkin-languages.json`**](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/resources/gherkin/gherkin-languages.json) utilisé pour l'internationalisation. 
  
-- Dans [java/gherkin](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/gherkin) puis [ast](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/gherkin/ast), vous trouverez une **implémentation java du langage Gherkin** conforme au diagramme de classes que vous venez de modéliser, diagramme de classes qui est également proposé dans le [README](https://github.com/cucumber/cucumber/blob/master/gherkin/README.md) du projet Gherkin : jetez un petit coup d'oeil par [là](https://github.com/cucumber/cucumber/blob/master/gherkin/README.md), il faut descendre un peu pour l'apercevoir :simple_smile:
+- dans [java/io/cucumber/gherkin](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/io/cucumber/gherkin) se trouvent les constantes du langage Gherkin dans le fichier **`GherkinLanguageConstants.java`**.  
 
 
-Consultez le contenu de ([cucumber/gherkin/java/src/main/java/gherkin/ast/](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/gherkin/ast).  
-Vous devriez y trouver une implémentation Java des classes découvertes lors de la modélisation du diagramme de classes à quelques exceptions près :
+- dans [java/io/cucumber/gherkin]( https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/io/cucumber/gherkin) se trouve également le code du fichier [**`GherkinDocumentBuilder.java`**](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/io/cucumber/gherkin/GherkinDocumentBuilder.java) qui indique que les classes qui viennent d'être modéliser se trouvent désormais  dans le package **`io.cucumber.messages.Messages.GherkinDocument.Feature`**. Le code de ces classes est donc disponible dans le répertoire **`gherkin-messagges`** du dépôt [**`cucumber-jvm`**](https://github.com/cucumber/cucumber-jvm), c-a-d plus précisément ici : https://github.com/cucumber/cucumber-jvm/tree/main/gherkin-messages/src/main/java/io/cucumber/core/gherkin/messages   
+
+
+
+Consultez le contenu de ce dépôt([cucumber/cucumber-jvm/gherkhin-messages](https://github.com/cucumber/cucumber-jvm/tree/main/gherkin-messages).  
+Dans le [src/main/java/io/cucumber/core/gherkin/messages](https://github.com/cucumber/cucumber-jvm/tree/main/gherkin-messages/src/main/java/io/cucumber/core/gherkin/messages), vous devriez y trouver une implémentation Java des classes découvertes lors de la modélisation du diagramme de classes à quelques exceptions près :
 
 * Le langage Gherkin a été implémenté sous forme d'[arbre syntaxique abstrait](https://fr.wikipedia.org/wiki/Arbre_syntaxique_abstrait) (**a**bstract **s**yntax **t**ree en anglais ou **ast**). Nous ne rentrerons pas dans ce tutoriel, dans le détail de ce qu'est un [arbre syntaxique abstrait](https://fr.wikipedia.org/wiki/Arbre_syntaxique_abstrait). Nous nous contenterons juste de retenir le point suivant : **le langage Gherkin a été implémenté sous forme d'arbre et un arbre est composé de nœuds**, d'où :
 	- la présence de la classe [Node](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/ast/Node.java) (que nous n'avions pas identifié dans le diagramme de classes).
@@ -500,10 +506,8 @@ Given a blog post named "Random" with Markdown body
 
 ```
 
-* Les ***constantes*** **du langage Gherkin** se trouve dans le fichier [GherkinLanguageConstants.java](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/GherkinLanguageConstants.java) non pas directement dans le dépôt [ast](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/gherkin/ast), mais juste au-dessus dans le dépôt [cucumber/gherkin/java/src/main/java/gherkin/](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/gherkin).  
-On y trouve d'ailleurs la constante permettant d'introduire un [DocString](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/ast/DocString.java) à savoir **`"""`** déclaré comme : `String DOCSTRING_ALTERNATIVE_SEPARATOR = "```" ;`
+On retrouve d'ailleurs la constante permettant d'introduire un [DocString](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/ast/DocString.java) à savoir **`"""`** déclaré comme : `String DOCSTRING_ALTERNATIVE_SEPARATOR = "```" ;``   dans la classe [`GherkinLanguageConstants.java`](https://github.com/cucumber/cucumber/tree/master/gherkin/java/src/main/java/io/cucumber/gherkin) 
 
-* La présence du classe [Location](https://github.com/cucumber/cucumber/blob/master/gherkin/java/src/main/java/gherkin/ast/Location.java) qui permet situer un endroit dans le document Gherkin à partir de sa ligne et sa colonne. Elle est notamment utilisée pour situer chaque élément du langage dans le document Gherkin.
 
 
 #### Question  
